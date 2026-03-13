@@ -39,3 +39,16 @@ To ensure the model is ethical and unbiased, I cross-referenced the IoU predicti
 * **Gender Neutrality:** The model performs almost identically on **Female (0.2932 IoU)** and **Male (0.2918 IoU)** faces. This indicates it relies on structural blending artifacts rather than overfitting to gender-specific features like makeup or facial hair.
 * **Racial Consistency:** Despite a significant class imbalance in the training data (e.g., White faces heavily outnumbering Indian/Black faces), the IoU remained remarkably stable across all tested races (ranging tightly from 0.2840 to 0.3050).
 * **The "Age" Bias:** A notable performance drop was identified when predicting deepfakes of **Children (0.2445 IoU)** compared to **Adults (0.2980 IoU)**. This highlights a structural bias in the underlying dataset and generation tools, as deepfake algorithms are predominantly trained on adult facial proportions.
+
+* ## How to Run Inference
+You do not need to retrain the model to visualize the heatmaps. You can run inference using my pre-trained weights.
+
+1. **Download the Pre-Trained Weights:**
+   * Navigate to the **Releases** tab on the right side of this GitHub repository.
+   * Download the `swin_unet_epoch_20.pth` file attached to the latest release.
+   * Place the downloaded file into a folder named `weights/` in your project directory.
+2. **Load the Weights:**
+   ```python
+   WEIGHTS_PATH = 'weights/swin_unet_epoch_20.pth'
+   model.load_state_dict(torch.load(WEIGHTS_PATH, map_location=device))
+   model.eval()
