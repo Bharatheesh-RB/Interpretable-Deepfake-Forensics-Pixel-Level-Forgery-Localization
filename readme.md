@@ -40,7 +40,7 @@ To ensure the model is ethical and unbiased, I cross-referenced the IoU predicti
 * **Racial Consistency:** Despite a significant class imbalance in the training data (e.g., White faces heavily outnumbering Indian/Black faces), the IoU remained remarkably stable across all tested races (ranging tightly from 0.2840 to 0.3050).
 * **The "Age" Bias:** A notable performance drop was identified when predicting deepfakes of **Children (0.2445 IoU)** compared to **Adults (0.2980 IoU)**. This highlights a structural bias in the underlying dataset and generation tools, as deepfake algorithms are predominantly trained on adult facial proportions.
 
-* ## How to Run Inference
+## How to Run Inference
 You do not need to retrain the model to visualize the heatmaps. You can run inference using my pre-trained weights.
 
 1. **Download the Pre-Trained Weights:**
